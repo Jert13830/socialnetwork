@@ -1,0 +1,298 @@
+body{
+    background-image: url("../images/background.png");
+    font-family: Montserrat, Arial, sans-serif;
+}
+
+
+/* START - Login screen */
+
+#loginDiv{
+    background-color: #fff;
+    width: 20%;
+    padding: 2rem;
+    border-radius: 2rem;
+    position: absolute;
+    left: 50%;
+
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loginForm{
+    display: flex;
+    justify-content: center;
+  
+}
+#blurZone{
+    filter: blur(3px);
+}
+
+#loginIcon{
+    height : 4rem
+}
+
+#formDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap:10px;
+}
+
+#formDiv a, #divider{
+    text-decoration: none;
+    font-size : 9pt;
+}
+
+#formDiv a:hover{
+    color: #019cfe;
+}
+
+#linkDiv{
+    display: flex;
+    gap: 5px;
+}
+
+h1{
+    color:#000a31;
+}
+
+#logoDiv{
+    display: flex;
+    gap :5px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.btnLogin{
+    background-color: #000a31;
+    color : #fff;
+    height: 2rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    margin-top: 5px;
+}
+
+#btnLogin:hover{
+    color: #019cfe;
+}
+
+.loginInput{
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+input{
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+/***. MENU  ***/
+nav{
+    display : flex;
+    justify-content: space-between;
+    background-color: #fff;
+    color: #000a31;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    gap:3rem;
+    padding: 0px 10px 0px 10px;
+    height: 70px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000a31;
+    
+    
+}
+
+.menu a img{
+    width : 30px;  
+}
+.menu ul{
+    display : flex;
+    gap: 20px;
+    list-style: none;
+}
+
+#signout{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+
+/*** END MENU ***/
+
+/* Responsive (mobile) */
+@media (max-width: 1100px) {
+    #loginDiv{
+        width: 30%;
+    }
+}
+
+@media (max-width: 800px) {
+    #loginDiv{
+        width: 40%;
+    }
+}
+
+@media (max-width: 550px) {
+    #loginDiv{
+        width: 50%;
+    }
+}
+
+@media (max-width: 430px) {
+    #loginDiv{
+        width: 60%;
+    }
+}
+
+/* END - Login screen */
+
+/* START - New user screen */
+
+#newUserDiv{
+   background-color: #fff;
+    width: 40%;
+    padding: 2rem;
+    border-radius: 2rem;
+    position: absolute;
+    left: 50%;
+
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#dobHelpBlock {
+  font-size: x-small;
+  display: block;
+  font-weight: bold;
+
+}
+
+#userBtns{
+    display: flex;
+    gap : 10px;
+}
+
+.alert{
+    background-color: #fff;
+    color:red;
+    
+    text-align: center;
+    width:fit-content;
+    padding: 1rem;
+    border-radius: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 20px rgba(0,0,0.25);
+     animation: fadeIn 0.5s ease-in;
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#pageContent{
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  
+  top: 70px;
+
+  display: grid;
+  grid-template-columns: 0.75fr 1.5fr 0.75fr;
+  gap: 8px; 
+  background-color: #eee;
+  padding: 8px 8px 0px 8px; 
+  
+  box-sizing: border-box;
+  z-index: 999;
+
+  overflow: hidden;
+
+}
+
+.column {
+  overflow-y: auto;
+  background: white;
+  padding: 1rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.column:first-child {
+  border-left: none;
+}
+
+main{
+    justify-items: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap:10px;
+}
+
+#postBtn{
+    display:flex;
+    align-items: center;
+   justify-content: center;
+   width: 100%;
+}
+
+#postBtn button{
+    
+    background-color: #000a31;
+    
+}
+
+.postSignature{
+    display:flex;
+    gap : 10px;
+}
+
+.post{
+    margin-top: 20px;
+}
+
+.titleBar{
+    display:flex;
+     justify-content:space-between;
+
+}
+.titleBarBtn{
+    display:flex;
+    gap : 5px;
+
+   
+}
+.titleBarBtn button{
+    display:flex;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
