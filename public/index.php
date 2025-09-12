@@ -22,7 +22,8 @@ require_once '../src/controllers/UserSpaceController.php';
 require_once '../src/controllers/SignoutUserController.php';
 require_once '../src/controllers/DeletePostController.php';
 require_once '../src/controllers/EditPostController.php';
-
+require_once '../src/controllers/PostController.php';
+require_once '../src/controllers/NewPostController.php';
 
 require_once "../src/models/Db.php";
 require_once "../src/models/repositories/UserRepository.php";

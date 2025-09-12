@@ -3,7 +3,9 @@
 ?>
 
 <body>
-      <div id="blurZone">
+  <div id="blurZone" 
+     style="pointer-events: <?php echo isset($_SESSION['active']) ? 'none' :'auto'; ?>;
+            filter: blur(<?php echo isset($_SESSION['blur']) ? 2 : 0; ?>px);">
           <header>
             <nav>
               <div id="logoDiv">
@@ -74,7 +76,24 @@
                   
               </div>
           </main>
-      </div>
+  </div>
+  <div id="postDiv">
+         <form action="/newPost" method="post">
+            <h2 id="createPost">Create a post</h2>
+            <input class="loginInput" type="text" name="newPostTitle" id="newPostTitlee" placeholder="Your post title" required><br>
+            <textarea class="loginInput" name="newPostContent" id="newPostContent" rows="10" cols="48" required placeholder="What would you like to share with us, <?php echo $_SESSION["userValid"]["username"];?> ?"></textarea><br><br>
+            <div>
+              <div>
+                  <button class="btnLogin" type="submit" name="newPostBtn">Post</button>
+              </div>
+              <div>
+
+              </div>
+            </div>
+         </form>                
+
+  </div>                      
+
 </body>
 
 </html>
