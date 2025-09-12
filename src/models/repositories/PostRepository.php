@@ -31,5 +31,9 @@
          return self::request($sql);
     }
 
+    static function addPost($title,$content,$date,$userId){
+        $sql = "INSERT INTO posts (title,content,date,userId) VALUES ('$title','$content','$date','$userId')";
+        return self::request($sql);
+    }
 
 }?>

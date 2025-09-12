@@ -14,7 +14,7 @@
                 <div id="linkDiv">
                     <a href="#">Forgotten Password</a><span id="divider"> | </span><a href="/createUser">Create account</a>
                 </div>
-                <button class="btnLogin" type="submit" name="loginUser">LOGIN</button>
+                <button class="btnLogin" type="submit" name="loginUser">Login</button>
             </div>
         </form>
     </div>

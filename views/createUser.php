@@ -29,11 +29,11 @@
                 </div>
                 <div id="userBtns">
                         
-                        <button class="btnLogin" id="btnSaveUser" type="submit" name='btnSaveUser'>SUBMIT</button>
+                        <button class="btnLogin" id="btnSaveUser" type="submit" name='btnSaveUser'>Submit</button>
                         
                         
                         <form action="./" method="post">
-                                <button class="btnLogin" id="btnCancelUser" type="submit" name='btnCancelUser' formnovalidate>CANCEL</button>
+                                <button class="btnLogin" id="btnCancelUser" type="submit" name='btnCancelUser' formnovalidate>Cancel</button>
                         </form>
                 </div>
             </div>

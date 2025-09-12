@@ -3,9 +3,11 @@
 ?>
 
 <body>
+   
+ 
   <div id="blurZone" 
-     style="pointer-events: <?php echo isset($_SESSION['active']) ? 'none' :'auto'; ?>;
-            filter: blur(<?php echo isset($_SESSION['blur']) ? 2 : 0; ?>px);">
+     style="pointer-events: <?php echo $_SESSION['active']; ?>;
+            filter: blur(<?php echo $_SESSION['blur']; ?>px);">
           <header>
             <nav>
               <div id="logoDiv">
@@ -60,9 +62,9 @@
                                 </div>
                             </div>
                             <div class="postContent"><?php echo $post["content"]; ?></div>
-                            <div class="postSignature">
+                            <div class="postSignature postDate">
                                 <div><?php echo User::getUserUsername($post["userId"]); ?></div>
-                                <div><?php echo $post["date"]; ?></div>
+                                <div class="postDate"><?php echo $post["date"]; ?></div>
                             </div>
                         </div>
                       <?php endforeach; ?>
@@ -77,17 +79,20 @@
               </div>
           </main>
   </div>
-  <div id="postDiv">
+  <div id="postDiv" style="display:<?php echo $_SESSION["hidePost"];?>;">
          <form action="/newPost" method="post">
             <h2 id="createPost">Create a post</h2>
             <input class="loginInput" type="text" name="newPostTitle" id="newPostTitlee" placeholder="Your post title" required><br>
             <textarea class="loginInput" name="newPostContent" id="newPostContent" rows="10" cols="48" required placeholder="What would you like to share with us, <?php echo $_SESSION["userValid"]["username"];?> ?"></textarea><br><br>
-            <div>
-              <div>
+            <div id="postBtns">
+              <div id="postBtnsLeft">
                   <button class="btnLogin" type="submit" name="newPostBtn">Post</button>
+                  <button class="btnLogin" type="reset">Reset</button>
               </div>
               <div>
-
+                  <form action="./userSpace" method="post">
+                                <button class="btnLogin" id="btnCancelPost" type="submit" name='btnCancelPost' formnovalidate>Cancel</button>
+                        </form>        
               </div>
             </div>
          </form>                

@@ -9,6 +9,9 @@ if(!isset($_SESSION)){
 
 if (!isset($_SESSION["displayError"])) {
     $_SESSION["displayError"] = "none";
+    $_SESSION["active"] = "auto";
+    $_SESSION["blur"] = 0;
+    $_SESSION["hidePost"] = "none";
 }
 
 require_once '../core/Router.php';

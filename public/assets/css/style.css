@@ -262,7 +262,18 @@ main{
 }
 
 .post{
+    display:flex;
+    flex-direction: column;
+    gap : 10px;
     margin-top: 20px;
+
+}
+.postTitle{
+    font-weight: bold;
+}
+.postDate{
+    font-size:smaller;
+    font-style: italic;
 }
 
 .titleBar{
@@ -297,7 +308,7 @@ main{
     border-radius: 5px;
     position: absolute;
     left: 50%;
-
+    display: none;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -358,3 +369,17 @@ btnLogin{
   box-shadow: rgba(131, 192, 253, 0.5) 0 0 0 3px;
   outline: none;
 }
+
+#postBtns{
+    display:flex;
+    gap: 10px;
+    width:100%;
+    justify-content: space-between;
+}
+
+#postBtnsLeft{
+    display:flex;
+    gap: 10px;
+}
+
+ 
