@@ -1,6 +1,6 @@
 <?php
  class Post extends PostRepository{
-    private int $id;
+    private ?int $id = null;  // "?" means it can be null OR int
     private string $title;
     private string $content;
     private DateTime $date;
