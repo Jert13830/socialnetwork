@@ -50,4 +50,15 @@
          $sql = "SELECT * FROM users where username = '$loginName' OR email = '$loginName'";
          return self::request($sql)->fetch();
     }
+
+    static function checkUserEmail($createEmail){
+         $sql = "SELECT * FROM users where email = '$createEmail'";
+         return self::request($sql)->fetch();
+    }
+    
+    static function checkUserUsername($createUsername){
+         $sql = "SELECT * FROM users where username = '$createUsername'";
+         return self::request($sql)->fetch();
+    }
+    
 }?>

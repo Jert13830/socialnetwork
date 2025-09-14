@@ -20,8 +20,10 @@
     </div>
     <form action="/error" method="post">
         <div class="alert" style="display:<?php echo isset($_SESSION["displayError"]) ? $_SESSION["displayError"] : 'none'; ?>;">
-            <h2>User does not exist</h2>
-            <button class="btnLogin" id="btnOK" name="btnOK">OK</button>
+            <h3>User does not exist</h3>
+            <div id="okDiv">
+                <button class="btnLogin" id="btnOK" name="btnOK">OK</button>
+            </div>
         </div>
     </form>
 </body>

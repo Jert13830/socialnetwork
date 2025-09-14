@@ -12,6 +12,8 @@ if (!isset($_SESSION["displayError"])) {
     $_SESSION["active"] = "auto";
     $_SESSION["blur"] = 0;
     $_SESSION["hidePost"] = "none";
+    $_SESSION["edit"] = false;
+    $_SESSION["postEdit"] = false;
 }
 
 require_once '../core/Router.php';

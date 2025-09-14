@@ -11,11 +11,11 @@
         <form action="/saveUser" id=loginForm method="post">
             <div id="formDiv">
                 <div id="userNames">
-                    <input class="loginInput" type="text" name="userSurname" id="userSurname" placeholder="Surname" required>
-                    <input class="loginInput" type="text" name="userForename" id="userForename" placeholder="Forename" required>
+                    <input class="loginInput" type="text" name="userSurname" id="userSurname" placeholder="Surname" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+([ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$" required>
+                    <input class="loginInput" type="text" name="userForename" id="userForename" placeholder="Forename" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+([ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$" required>
                 </div>
                 <div id="userEmail">
-                    <input class="loginInput" type="email" name="userEmail" id="userEmail" placeholder="Email address" required>
+                    <input class="loginInput" type="email" name="userEmail" id="userEmail" placeholder="Email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                 </div>
                 <div id="userAlias">
                  <small id="dobHelpBlock">Date of birth</small>
@@ -32,13 +32,21 @@
                         <button class="btnLogin" id="btnSaveUser" type="submit" name='btnSaveUser'>Submit</button>
                         
                         
-                        <form action="./" method="post">
+                       
                                 <button class="btnLogin" id="btnCancelUser" type="submit" name='btnCancelUser' formnovalidate>Cancel</button>
-                        </form>
+                        
                 </div>
             </div>
         </form>
     </div>
+    <form action="/error" method="post">
+        <div class="alert" style="display:<?php echo isset($_SESSION["displayError"]) ? $_SESSION["displayError"] : 'none'; ?>;">
+            <h3><?php  echo $_SESSION["displayErrorMessage"] ?></h3>
+            <div id="okDiv">
+                <button class="btnLogin" id="btnOKi" name="btnOKi">OK</button>
+            </div>
+        </div>
+    </form>
 </body>
 
 </html>

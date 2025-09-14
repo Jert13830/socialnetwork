@@ -36,4 +36,10 @@
         return self::request($sql);
     }
 
-}?>
+    static function updatePost($id,$title,$content,$date,$userId){
+       $sql = "UPDATE posts SET title = '$title',content = '$content',date = '$date', userId ='$userId'  WHERE id = $id";
+        return self::request($sql);
+    }
+    
+}
+?>

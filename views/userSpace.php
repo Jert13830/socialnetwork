@@ -47,14 +47,15 @@
                   <section class="column" id="middleMenu">
                   <div class="content " id="middelContent">
                     <?php 
+                      $i = 0;
                       foreach($_SESSION["posts"] as $post) : ?>
-
                         <div class="post">
                             <div class="titleBar">
                                 <div class="postTitle"><?php echo $post["title"]; ?></div>
                                 <div class="titleBarBtn">
                                   <form action="/editPost" method="post">
-                                      <button name="editPost" value=<?php echo $post["id"]; ?>>&#9998;</button>
+                                    <input type="hidden" name="newPostIdEdit" id="newPostIdEdit" value="<?php echo $post['id']; ?>">
+                                      <button name="editPost" value=<?php echo $i; ?>>&#9998;</button>
                                   </form>
                                   <form action="/deletePost" method="post">
                                       <button name="delPost" value=<?php echo $post["id"]; ?>>&#x1F5D1;</button>
@@ -67,7 +68,8 @@
                                 <div class="postDate"><?php echo $post["date"]; ?></div>
                             </div>
                         </div>
-                      <?php endforeach; ?>
+                        
+                      <?php $i++; endforeach; ?>
                   </div>
                   </section>
                   <section class="column" id="rightMenu">
@@ -81,17 +83,25 @@
   </div>
   <div id="postDiv" style="display:<?php echo $_SESSION["hidePost"];?>;">
          <form action="/newPost" method="post">
-            <h2 id="createPost">Create a post</h2>
-            <input class="loginInput" type="text" name="newPostTitle" id="newPostTitlee" placeholder="Your post title" required><br>
-            <textarea class="loginInput" name="newPostContent" id="newPostContent" rows="10" cols="48" required placeholder="What would you like to share with us, <?php echo $_SESSION["userValid"]["username"];?> ?"></textarea><br><br>
-            <div id="postBtns">
+            <h2 id="createPost"><?php echo $_SESSION["edit"] ? "Edit a post" : "Create a post"; ?></h2>
+            <?php if($_SESSION["edit"]) : ?>
+                    <input class="loginInput" type="text" name="newPostTitle" id="newPostTitle" rows="10" cols="48" value="<?php echo htmlspecialchars($_SESSION['posts'][$_SESSION["editPost"]]['title']); ?>"  required><br>
+                    <textarea name="newPostContent" id="newPostContent" required>
+<?php echo htmlspecialchars($_SESSION['posts'][$_SESSION["editPost"]]['content']); ?>
+</textarea><br><br>
+              <?php else: ?>
+                    <input class="loginInput" type="text" name="newPostTitle" id="newPostTitlee" placeholder="Your post title" required><br>
+                    <textarea class="loginInput" name="newPostContent" id="newPostContent" rows="10" cols="48" required placeholder="What would you like to share with us, <?php echo $_SESSION["userValid"]["username"];?> ?"></textarea><br><br>
+            <?php endif;?>
+            
+                    <div id="postBtns">
               <div id="postBtnsLeft">
                   <button class="btnLogin" type="submit" name="newPostBtn">Post</button>
                   <button class="btnLogin" type="reset">Reset</button>
               </div>
               <div>
-                  <form action="./userSpace" method="post">
-                                <button class="btnLogin" id="btnCancelPost" type="submit" name='btnCancelPost' formnovalidate>Cancel</button>
+                  <form method="post">
+                           <button class="btnLogin" id="btnCancelPost" type="submit" name='btnCancelPost' formnovalidate>Cancel</button>
                         </form>        
               </div>
             </div>

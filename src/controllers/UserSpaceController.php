@@ -8,8 +8,10 @@ class UserSpaceController
             $_SESSION["posts"] = Post::getUserPosts($_SESSION["userValid"]["id"]);
         }
         include_once '../views/userSpace.php';
+
         
      }
+     
 
 }
 
