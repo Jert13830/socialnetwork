@@ -34,7 +34,19 @@
                         <h3><p>User : <?php echo $_SESSION["userValid"]["username"];?></p></h3>
                     </div>
                     <div id="nbPosts">
-                      <p><h3>N° Posts : <?php echo isset($_SESSION["posts"]) && is_array($_SESSION["posts"]) ? count($_SESSION["posts"]) : 0; ?></h3></p>
+                      <p><h3>N° Posts : <?php 
+                                          if (isset($_SESSION["posts"]) && is_array($_SESSION["posts"])) {
+                                              $count = 0;
+                                              foreach ($_SESSION["posts"] as $post) {
+                                                  if ($post["userId"] == $_SESSION["userValid"]["id"]) {
+                                                      $count++;
+                                                  }
+                                              }
+                                              echo $count;
+                                          } else {
+                                              echo 0;
+                                          }
+                                          ?>
                     </div>
                     <div id="postBtn">
                         <form action="/post" method="post">
@@ -52,6 +64,8 @@
                         <div class="post">
                             <div class="titleBar">
                                 <div class="postTitle"><?php echo $post["title"]; ?></div>
+                                
+                                <?php if ($_SESSION['userValid']['id'] == $post['userId']): ?>
                                 <div class="titleBarBtn">
                                   <form action="/editPost" method="post">
                                     <input type="hidden" name="newPostIdEdit" id="newPostIdEdit" value="<?php echo $post['id']; ?>">
@@ -61,6 +75,8 @@
                                       <button name="delPost" value=<?php echo $post["id"]; ?>>&#x1F5D1;</button>
                                   </form>
                                 </div>
+                                <?php endif; ?>
+                                
                             </div>
                             <div class="postContent"><?php echo $post["content"]; ?></div>
                             <div class="postSignature postDate">

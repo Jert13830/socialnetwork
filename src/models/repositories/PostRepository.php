@@ -26,6 +26,14 @@
         return self::request($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    static function getAllUsersPosts(){
+        $sql = "SELECT posts.*, users.username
+        FROM posts
+        INNER JOIN users ON posts.userId = users.id
+        ORDER BY posts.date DESC";
+        return self::request($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     static function deletePost($postId){
         $sql = "DELETE FROM posts where id = $postId";
          return self::request($sql);
