@@ -16,13 +16,13 @@ class SaveUserController
 
         if (isset($_POST["btnSaveUser"]) && !isset($_POST["btnCancelUser"])){
 
-            if (User::checkUserUsername($_POST["userUsername"])){
+            if (User::checkUserUsername(htmlspecialchars($_POST["userUsername"]))){
             
                 $_SESSION["displayError"] = "block";
                 $_SESSION["displayErrorMessage"] = "Username already in use";
 
 
-            }else if (User::checkUserEmail($_POST["userEmail"])){
+            }else if (User::checkUserEmail(htmlspecialchars($_POST["userEmail"]))){
 
                
                   $_SESSION["displayError"] = "block";
@@ -32,7 +32,14 @@ class SaveUserController
             }
             else{
                 $dob = new DateTime($_POST['userDOB']);
-                $user = new User($_POST['userSurname'],$_POST['userForename'],$dob,$_POST['userEmail'],$_POST['userUsername'],password_hash($_POST['userPassword'],PASSWORD_DEFAULT));
+                $user = new User(
+                    htmlspecialchars($_POST['userSurname']),
+                    htmlspecialchars($_POST['userForename']),
+                    $dob,
+                    htmlspecialchars($_POST['userEmail']),
+                    htmlspecialchars($_POST['userUsername']),
+                    password_hash(htmlspecialchars($_POST['userPassword']), PASSWORD_DEFAULT)
+                );
                 User::createUser($user);
 
                  header("Location: ./");

@@ -9,7 +9,7 @@ class CheckUserController
                 
             $userValid = User::checkUserLogin($_POST[htmlspecialchars('loginName')]);
 
-            if ($userValid != null && password_verify($_POST["loginPassword"],$userValid["pword"])){
+            if ($userValid != null && password_verify(htmlspecialchars($_POST["loginPassword"]),$userValid["pword"])){
 
                  $_SESSION["userValid"] = $userValid; //set the session valid user
                  header("Location: ./userSpace");
